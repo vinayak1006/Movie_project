@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Background Image */
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+
+background-image:url("https://wallpapercave.com/wp/wp7307741.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+/* Form Card */
+form{
+background: rgba(0,0,0,0.6);
+padding:40px;
+border-radius:12px;
+width:320px;
+text-align:center;
+box-shadow:0 0 20px black;
+animation:fadeIn 1s ease;
+}
+
+/* Title */
+h2{
+color:white;
+margin-bottom:20px;
+}
+
+/* Inputs */
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:6px;
+outline:none;
+transition:0.3s;
+}
+
+/* Input animation */
+input:focus{
+transform:scale(1.05);
+box-shadow:0 0 8px white;
+}
+
+/* Button */
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:gold;
+color:white;
+border:none;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:yellowgreen;
+transform:scale(1.08);
+}
+
+/* Error message */
+p{
+margin-top:10px;
+text-align:center;
+}
+
+/* Animation */
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<form action="" method="post">
+{% csrf_token %}
+
+<h2>Signup Page</h2>
+
+<input type="text" placeholder="Enter username" name="username" required>
+
+<input type="email" placeholder="Enter email" name="email" required>
+
+<input type="password" placeholder="Enter password" name="password" required>
+
+<button>Signup</button>
+
+{% if error %}
+<p style="color:red; font-weight:bolder;">{{error}}</p>
+{% endif %}
+
+</form>
+
+</body>
+</html>
